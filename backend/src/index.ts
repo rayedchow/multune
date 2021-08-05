@@ -1,5 +1,6 @@
-import { APIServer } from './APIServer';
 import { config } from 'dotenv';
+import { APIServer } from './APIServer';
+import { MongoProcess } from './DBConnection';
 
 // Initializes .ENV Config
 config();
@@ -13,4 +14,9 @@ const getPortNumber = () => {
 	return PORT;
 }
 
+// Initializes MongoDB Process
+const connectionURI = process.env.MONGO_CONNECTION;
+if(connectionURI !== undefined) new MongoProcess(connectionURI);
+
+// Initializes API Server
 export const server = new APIServer(getPortNumber());
