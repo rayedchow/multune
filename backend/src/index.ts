@@ -10,7 +10,7 @@ const getPortNumber = () => {
 	let PORT: number = 5000;
 
 	if(typeof process.env.PORT === "number") PORT = process.env.PORT;
-	
+
 	return PORT;
 }
 
