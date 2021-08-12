@@ -1,7 +1,7 @@
 import { PlaylistService } from '../services/playlist.service';
 import { UserService } from '../services/user.service';
 import { Playlist } from '../@types/Playlist';
-import {Song} from '../@types/Song';
+import { Song } from '../@types/Song';
 
 export class PlaylistController {
 	
