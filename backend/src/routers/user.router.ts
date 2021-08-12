@@ -1,9 +1,11 @@
 import { Router } from 'express';
+import { UserController } from '../controllers/user.controller';
 
 const expressRouter = Router();
 
-expressRouter.get('/', (req, res) => {
-	console.log('');
+expressRouter.get('/', async (req, res) => {
+	const { email } = req.body;
+	return UserController.getUser(email);
 });
 
 module.exports = expressRouter;

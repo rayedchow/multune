@@ -29,7 +29,7 @@ export class PlaylistController {
 	}
 
 	static async createPlaylist(playlistData: Playlist) {
-		
+
 		try {
 
 			if(playlistData.userID === undefined) return ({error: 'UserID not defined'});
@@ -38,10 +38,10 @@ export class PlaylistController {
 
 			if(!user.playlistID || !user._id) return ({ error: 'User possibly does not own this playlist.' });
 			if(user.playlistID.includes(user._id)) {
-				
+
 				// Creates new playlist usind PlaylistService
 				const newPlaylist = await PlaylistService.createPlaylist(playlistData);
-				
+
 				// Adding playlist to user's owned playlists
 				user.playlistID.push(newPlaylist._id);
 				await user.save();
@@ -50,7 +50,7 @@ export class PlaylistController {
 			}
 
 		} catch(err) {
-			
+
 			// Throws/returns Error
 			console.error(err);
 			return ({
@@ -61,11 +61,11 @@ export class PlaylistController {
 	}
 
 	static async addSong(userID: string, playlistID: string, songData: Song) {
-		
+
 		try {
 			// Error checking
 			if(await PlaylistService.getPlaylist(playlistID) === null) return { error: 'Playlist does not exist' };
-			
+
 			const user = await UserService.getUserData(userID);
 
 			if((user === null) || ((user.playlistID) && (user.playlistID.includes(playlistID)))) {
@@ -81,7 +81,7 @@ export class PlaylistController {
 			return updatedPlaylist;
 
 		} catch (err) {
-			
+
 			// Throws/returns Error
 			console.error(err);
 			return ({
