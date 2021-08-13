@@ -22,7 +22,7 @@ export class APIServer {
 		});
 	}
 
-	get GetExpressServer(): Express {
+	GetExpressServer(): Express {
 		return this.app;
 	}
 
