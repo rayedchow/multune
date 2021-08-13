@@ -3,7 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 
 export class APIServer {
-	app: Express;
+	public app: Express;
 	
 	constructor(PORT: number) {
 		this.app = express();
