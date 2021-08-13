@@ -1,6 +1,8 @@
 import { config } from 'dotenv';
 import { APIServer } from './APIServer';
 import { MongoProcess } from './DBConnection';
+import UserRouter from './routers/user.router';
+import PlaylistRouter from './routers/playlist.router';
 
 // Initializes .ENV Config
 config();
@@ -20,3 +22,6 @@ if(connectionURI !== undefined) new MongoProcess(connectionURI);
 
 // Initializes API Server
 export const server = new APIServer(getPortNumber());
+
+server.GetExpressServer().use('/user/', UserRouter);
+server.GetExpressServer().use('/playlist', PlaylistRouter);
