@@ -3,7 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 
 export class APIServer {
-	public app: Express;
+	app: Express;
 	
 	constructor(PORT: number) {
 		this.app = express();
@@ -20,6 +20,10 @@ export class APIServer {
 		this.app.listen(PORT, () => {
 			console.log(`🚀 Backend API Server Started on Port ${PORT}`);
 		});
+	}
+
+	get GetExpressServer(): Express {
+		return this.app;
 	}
 
 }
