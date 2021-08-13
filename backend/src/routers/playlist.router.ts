@@ -5,7 +5,7 @@ const expressRouter = Router();
 
 expressRouter.get('/', async (req, res) => {
 	const { playlistID } = req.body;
-	return res.json(PlaylistController.getPlaylist(playlistID));
+	return res.json(await PlaylistController.getPlaylist(playlistID));
 });
 
 module.exports = expressRouter;
