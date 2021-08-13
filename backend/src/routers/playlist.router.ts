@@ -13,4 +13,9 @@ expressRouter.post('/createPlaylist', async (req, res) => {
 	return res.json(await PlaylistController.createPlaylist(playlistData));
 });
 
+expressRouter.post('/addSong', async (req, res) => {
+	const { userID, playlistID, songData } = req.body;
+	return res.json(await PlaylistController.addSong(userID, playlistID, songData));
+});
+
 module.exports = expressRouter;
