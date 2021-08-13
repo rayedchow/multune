@@ -5,7 +5,7 @@ const expressRouter = Router();
 
 expressRouter.get('/', async (req, res) => {
 	const { email } = req.body;
-	return UserController.getUser(email);
+	return res.json(UserController.getUser(email));
 });
 
 module.exports = expressRouter;
