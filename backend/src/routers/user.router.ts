@@ -8,4 +8,4 @@ expressRouter.get('/', async (req, res) => {
 	return res.json(await UserController.getUser(email));
 });
 
-module.exports = expressRouter;
+export default expressRouter;

@@ -18,4 +18,4 @@ expressRouter.post('/addSong', async (req, res) => {
 	return res.json(await PlaylistController.addSong(userID, playlistID, songData));
 });
 
-module.exports = expressRouter;
+export default expressRouter;
