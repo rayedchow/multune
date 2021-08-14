@@ -1,5 +1,10 @@
-import { prop } from '@typegoose/typegoose';
+import { prop, modelOptions, Severity } from '@typegoose/typegoose';
 
+@modelOptions({
+	options: {
+		allowMixed: Severity.ALLOW
+	}
+})
 export class User {
 
 	@prop({ required: true })

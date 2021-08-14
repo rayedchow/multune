@@ -1,6 +1,11 @@
-import { prop } from '@typegoose/typegoose';
+import { prop, modelOptions, Severity } from '@typegoose/typegoose';
 import { Song } from './Song';
 
+@modelOptions({
+	options: {
+		allowMixed: Severity.ALLOW
+	}
+})
 export class Playlist {
 
 	@prop({ required: true })
