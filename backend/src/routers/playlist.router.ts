@@ -4,6 +4,7 @@ import { PlaylistController } from '../controllers/playlist.controller';
 const expressRouter = Router();
 
 expressRouter.get('/', async (req, res) => {
+	console.log('hi');
 	const { playlistID } = req.body;
 	return res.json(await PlaylistController.getPlaylist(playlistID));
 });

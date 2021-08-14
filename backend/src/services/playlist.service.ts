@@ -19,7 +19,7 @@ export class PlaylistService {
 		const savedPlaylist = await newPlaylist.save();
 
 		// Returns new playlist data
-		return savedPlaylist;
+		return { ...playlistData, _id: savedPlaylist._id };
 	}
 
 	static async addSong(playlistID: string, songData: Song) {

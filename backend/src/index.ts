@@ -24,4 +24,4 @@ if(connectionURI !== undefined) new MongoProcess(connectionURI);
 export const server = new APIServer(getPortNumber());
 
 server.GetExpressServer().use('/user/', UserRouter);
-server.GetExpressServer().use('/playlist', PlaylistRouter);
+server.GetExpressServer().use('/playlist/', PlaylistRouter);
