@@ -1,4 +1,5 @@
 import UserModel from '../models/user.model';
+import { User } from '../@types/User';
 
 export class UserService {
 
@@ -12,14 +13,15 @@ export class UserService {
 		const user = await UserModel.findOne({ email });
 
 		if(!user) {
-			const newUser = new UserModel({
+			const newUserObj: User = {
 				email,
 				playlistID: []
-			});
+			}
+			const newUser = new UserModel(newUserObj);
 
 			// Saves the new user into the database
 			const savedUser = await newUser.save();
-			return savedUser;
+			return { ...newUserObj, _id: savedUser._id };
 		}
 
 		return user;

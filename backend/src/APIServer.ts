@@ -7,14 +7,15 @@ export class APIServer {
 	
 	constructor(PORT: number) {
 		this.app = express();
+		this.app.use(express.json());
 
 		// Implementing HELMET Security as Middleware
 		this.app.use(helmet());
 
-		// If PRODUCTION Status, Use CORS
+		/* If PRODUCTION Status, Use CORS
 		if(PORT !== 5000) {
 			this.app.use(cors());
-		}
+		}]*/
 		
 		// Starts API Server
 		this.app.listen(PORT, () => {

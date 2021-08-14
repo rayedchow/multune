@@ -9,7 +9,7 @@ config();
 
 // Initializes PORT number
 const getPortNumber = () => {
-	let PORT: number = 5000;
+	let PORT: number = 80;
 
 	if(typeof process.env.PORT === "number") PORT = process.env.PORT;
 
