@@ -8,7 +8,7 @@ export class PlaylistController {
 	static async getPlaylist(playlistID: string) {
 
 		try {
-			const playlistData = PlaylistService.getPlaylist(playlistID);
+			const playlistData = await PlaylistService.getPlaylist(playlistID);
 
 			// If playlist is not found, return error
 			if(!playlistData) return ({
