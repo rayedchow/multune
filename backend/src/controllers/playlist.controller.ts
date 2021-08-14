@@ -10,6 +10,7 @@ export class PlaylistController {
 		try {
 			const playlistData = PlaylistService.getPlaylist(playlistID);
 
+			console.log(playlistData);
 			// If playlist is not found, return error
 			if(!playlistData) return ({
 				error: 'Playlist with given playlistID does not exist.'

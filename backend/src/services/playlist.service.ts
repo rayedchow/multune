@@ -5,11 +5,12 @@ import { Song } from '../@types/Song';
 export class PlaylistService {
 	
 	static getPlaylist(playlistID: string) {
-		const playlist = PlaylistModel.findOne({ _id: playlistID });
-
+		
+		const playlist = PlaylistModel.findOne({ _id: playlistID }, (err: any) => { if(err) return null });
+		
 		// If exists, simply return playlist
 		return playlist;
-	
+
 	}
 
 	static async createPlaylist(playlistData: Playlist) {

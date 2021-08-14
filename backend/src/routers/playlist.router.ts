@@ -4,8 +4,8 @@ import { PlaylistController } from '../controllers/playlist.controller';
 const expressRouter = Router();
 
 expressRouter.get('/', async (req, res) => {
-	console.log('hi');
 	const { playlistID } = req.body;
+	if(!playlistID) return res.status(400).json({ error: 'PLAYLISTID Param is not defined.' });
 	return res.json(await PlaylistController.getPlaylist(playlistID));
 });
 

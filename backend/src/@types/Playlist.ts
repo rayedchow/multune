@@ -23,4 +23,5 @@ export class Playlist {
 	@prop({ required: true })
 	public songs?: Song[];
 
+	public _id?: string;
 }
