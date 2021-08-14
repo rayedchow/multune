@@ -10,7 +10,6 @@ export class PlaylistController {
 		try {
 			const playlistData = PlaylistService.getPlaylist(playlistID);
 
-			console.log(playlistData);
 			// If playlist is not found, return error
 			if(!playlistData) return ({
 				error: 'Playlist with given playlistID does not exist.'
@@ -33,22 +32,20 @@ export class PlaylistController {
 
 		try {
 
-			if(playlistData.userID === undefined) return ({error: 'UserID not defined'});
-			const user = await UserService.getUserData(playlistData.userID);
-			if(!user) return ({error: 'UserID provided does not exist in database.'});
+			if(playlistData.userEmail === undefined) return ({error: 'UserEmail not defined'});
+			const user = await UserService.getUserData(playlistData.userEmail);
+			if(!user) return ({error: 'UserEmail provided does not exist in database.'});
 
-			if(!user.playlistID || !user._id) return ({ error: 'User possibly does not own this playlist.' });
-			if(user.playlistID.includes(user._id)) {
+			// Creates new playlist usind PlaylistService
+			const newPlaylist = await PlaylistService.createPlaylist(playlistData);
 
-				// Creates new playlist usind PlaylistService
-				const newPlaylist = await PlaylistService.createPlaylist(playlistData);
+			// Adding playlist to user's owned playlists
+			if(!user.playlistID) user.playlistID = [];
 
-				// Adding playlist to user's owned playlists
-				user.playlistID.push(newPlaylist._id);
-				await user.save();
+			user.playlistID.push(newPlaylist._id);
+			await user.save();
 
-				return newPlaylist;
-			}
+			return newPlaylist;
 
 		} catch(err) {
 

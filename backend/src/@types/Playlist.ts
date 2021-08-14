@@ -12,13 +12,13 @@ export class Playlist {
 	public name?: string;
 
 	@prop({ required: true })
-	public userID?: string;
+	public userEmail?: string;
 
 	@prop({ required: true })
 	public cover?: string;
 
 	@prop({ required: true })
-	public isPublic?: string;
+	public isPublic?: boolean;
 
 	@prop({ required: true })
 	public songs?: Song[];

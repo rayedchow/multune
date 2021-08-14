@@ -11,6 +11,7 @@ expressRouter.get('/', async (req, res) => {
 
 expressRouter.post('/createPlaylist', async (req, res) => {
 	const { playlistData } = req.body;
+	if(!playlistData) return res.status(400).json({ error: 'PLAYLISTDATA Param is not defined.' });
 	return res.json(await PlaylistController.createPlaylist(playlistData));
 });
 
