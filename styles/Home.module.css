@@ -1,0 +1,45 @@
+.sidebar {
+	width: 22.5vw;
+	height: 100vh;
+	background: #1E293B;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	border-right: #0F172A 3px solid;
+}
+
+.multuneLogo {
+	width: 80%;
+	height: 10%;
+	margin-top: 2vh;
+	align-self: center;
+}
+
+.sidebarContent {
+	margin-left: 3vw;
+	margin-top: 5vh;
+}
+
+.homeNav {
+	color: #90A0EC;
+	display: flex;
+	align-items: center;
+}
+
+.homeIcon {
+	width: 2.25vw;
+	fill: #90A0EC !important;
+}
+
+.homeTitle {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600; /* semi-bold */
+	font-size: calc(((1vw+1vh)/2) * 5.5);
+	margin-left: 1vw;
+}
+
+.sidebarFooter {
+	width: 100%;
+	position: fixed;
+	bottom: 0pt;
+}
